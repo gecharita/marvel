@@ -1,5 +1,5 @@
-# MYTHOLOGY
-Mythology experiment in Golang
+# Marvel
+Marvel experiment in Golang
 
 ## Prerequisites
 
@@ -12,8 +12,9 @@ Go must be installed
 go run main.go
 ```
 
-### API calls
-```shell
-curl -X POST  localhost:9090/mythology/gods/getall
-```
+## TEST
 
+```shell
+# For all packages
+go test ./...
+```

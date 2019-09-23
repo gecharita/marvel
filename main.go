@@ -1,9 +1,8 @@
 package main
 
-import (
-	"mythology/client"
-)
-
 func main() {
-	client.StartClient()
 }
+
+// func startClient() {
+// 	client.StartClient()
+// }
