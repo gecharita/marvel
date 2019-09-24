@@ -1,5 +1,3 @@
-# Dockerfile References: https://docs.docker.com/engine/reference/builder/
-
 # Start from the latest golang base image
 FROM golang:latest
 
@@ -21,7 +19,7 @@ COPY . .
 # Build the Go app
 RUN go build -o main .
 
-# Expose port 8080 to the outside world
+# Expose port 9090 to the outside world
 EXPOSE 9090
 
 # Command to run the executable
