@@ -19,4 +19,4 @@
 marvel
 
 # Ignore public & private keys
-do-not-commit\.txt
+apikeys\.info
