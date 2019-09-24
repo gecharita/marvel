@@ -45,7 +45,6 @@ func GetAllMarvelCharactersByte() ([]byte, error) {
 	q.Add("hash", "3a6b95f6b43d507afa65fb92c04125f8")
 
 	request.URL.RawQuery = q.Encode()
-	fmt.Println(request.URL.String())
 
 	timeout := time.Duration(5 * time.Second)
 

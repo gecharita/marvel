@@ -1,8 +1,9 @@
 package main
 
-func main() {
-}
+import (
+	"marvel/client"
+)
 
-// func startClient() {
-// 	client.StartClient()
-// }
+func main() {
+	client.StartClient()
+}
