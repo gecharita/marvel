@@ -1,0 +1,17 @@
+name: RunTests
+
+on:
+  push:
+    branches:
+    - master
+    - develop/*
+
+jobs:
+  test:
+    name: Run tests
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run go test for all packages
+      run: go test ./...
+    
