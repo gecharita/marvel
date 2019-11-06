@@ -10,11 +10,11 @@ on:
 jobs:
   test:
     name: Run tests
-    env:
-      super_secret: ${{ secrets.testCaseSecret }}
     runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v1
     - name: Run go test for all packages
+      env:
+        super_secret: ${{ secrets.testCaseSecret }}
       run: go test ./test -v
     
