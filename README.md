@@ -7,13 +7,12 @@ Go must be installed
 
 ## Instructions
 
-### Configuration
+### Configuration for LOCAL environment
 - Create a developer account at Marvel
-- Create a folder **resources** under the root of the project
-- Create the file **marvel-api.properties** under **resources**. That file should be in the following format and be filled with relevant data from Marvel Developer Account
+- Go to **resources/marvel-api.properties**. That file should be in the following format and be filled with relevant data from Marvel Developer Account
 
 ```sh
-# ****** DO NOT ADD THAT FILE IN VCS ********
+# ****** DO NOT COMMIT THAT FILE ********
 
 # DO NOT CHANGE marvel.test. It is used for unit test reasons.
 marvel.test=success

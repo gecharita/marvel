@@ -5,8 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"marvel/model"
-
-	// "marvel/utils"
+	"marvel/utils"
 	"net/http"
 	"os"
 	"time"
@@ -36,15 +35,23 @@ func GetAllMarvelCharacters() (*model.MarvelAPIResult, error) {
 // GetAllMarvelCharactersByte : bla bla bla
 func GetAllMarvelCharactersByte() ([]byte, error) {
 
+	// Try to get credentials from ENV variables
+	var marvelAPIKey string = os.Getenv("marvel_api_key")
+	var marvelHash string = os.Getenv("marvel_api_hash")
+
+	if marvelAPIKey == "" || marvelHash == "" {
+		// Try to get credentials from properties file
+		marvelAPIKey = utils.GetMarvelProperty("marvel.apikey")
+		marvelHash = utils.GetMarvelProperty("marvel.hash")
+	}
+
 	// ******** REQUEST with extra params ****************
 	request, err := http.NewRequest("GET", "http://gateway.marvel.com/v1/public/characters", nil)
 
 	q := request.URL.Query()
+	q.Add("apikey", marvelAPIKey)
+	q.Add("hash", marvelHash)
 	q.Add("ts", "1")
-	q.Add("apikey", os.Getenv("marvel_api_key"))
-	q.Add("hash", os.Getenv("marvel_api_hash"))
-	// q.Add("apikey", utils.GetMarvelProperty("marvel.apikey"))
-	// q.Add("hash", utils.GetMarvelProperty("marvel.hash"))
 
 	request.URL.RawQuery = q.Encode()
 
