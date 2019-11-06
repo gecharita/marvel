@@ -20,10 +20,9 @@ func TestEnvVariables(t *testing.T) {
 	// 	fmt.Println(pair[0], pair[1])
 	// }
 
-	log.Println(os.Getenv("testCaseSecret"))
-	log.Println("^^^^^^^^^^^^1^^^^^^^^^^^^^^^")
+	log.Println("^^^^^^^^^^^^^^^^^^^^^^^^^^^")
 	log.Println(os.Getenv("super_secret"))
-	log.Println("^^^^^^^^^^^^2^^^^^^^^^^^^^^^")
+	log.Println("^^^^^^^^^^^^^^^^^^^^^^^^^^^")
 
 	log.Println(os.Environ())
 

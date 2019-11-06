@@ -5,8 +5,10 @@ import (
 	"fmt"
 	"io/ioutil"
 	"marvel/model"
-	"marvel/utils"
+
+	// "marvel/utils"
 	"net/http"
+	"os"
 	"time"
 )
 
@@ -39,8 +41,10 @@ func GetAllMarvelCharactersByte() ([]byte, error) {
 
 	q := request.URL.Query()
 	q.Add("ts", "1")
-	q.Add("apikey", utils.GetMarvelProperty("marvel.apikey"))
-	q.Add("hash", utils.GetMarvelProperty("marvel.hash"))
+	q.Add("apikey", os.Getenv("marvel_api_key"))
+	q.Add("hash", os.Getenv("marvel_api_hash"))
+	// q.Add("apikey", utils.GetMarvelProperty("marvel.apikey"))
+	// q.Add("hash", utils.GetMarvelProperty("marvel.hash"))
 
 	request.URL.RawQuery = q.Encode()
 
