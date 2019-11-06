@@ -9,6 +9,8 @@ on:
 jobs:
   test:
     name: Run tests
+    env:
+      super_secret: ${{ secrets.testCaseSecret }}
     runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v1
