@@ -9,18 +9,10 @@ Go must be installed
 
 ### Configuration for LOCAL environment
 - Create a developer account at Marvel
-- Go to **resources/marvel-api.properties**. That file should be in the following format and be filled with relevant data from Marvel Developer Account
+- Add the following env variables with your personal Marvel API credentials:
+    1. **marvel_api_hash**=****
+    2. **marvel_api_key**=****
 
-```sh
-# ****** DO NOT COMMIT THAT FILE ********
-
-# DO NOT CHANGE marvel.test. It is used for unit test reasons.
-marvel.test=success
-# API KEY (Marvel Developer Account)
-marvel.apikey=abcdefghijklmn
-# API HASH (Marvel Developer Account)
-marvel.hash=abcdefghijklmn
-```
 
 ### Run
 ```shell

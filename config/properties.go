@@ -1,0 +1,12 @@
+package config
+
+import (
+	"github.com/magiconair/properties"
+)
+
+var generalProperties = properties.MustLoadFile("${HOME}/go/src/marvel/config/general.properties", properties.UTF8)
+
+// GetGeneralProperty generic method to extract property value
+func GetGeneralProperty(property string) string {
+	return generalProperties.MustGet(property)
+}
