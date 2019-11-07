@@ -2,10 +2,9 @@ package service
 
 import (
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
+	"log"
 	"marvel/model"
-	"marvel/utils"
 	"net/http"
 	"os"
 	"time"
@@ -17,14 +16,14 @@ func GetAllMarvelCharacters() (*model.MarvelAPIResult, error) {
 	data, err := GetAllMarvelCharactersByte()
 
 	if err != nil {
-		fmt.Printf("GetAllGodsByte ERROR: %s\n", err)
+		log.Printf("GetAllGodsByte ERROR: %s\n", err)
 		return nil, err
 	}
 
 	marvelResult, err := unmarshallMarvelResultAPI(data)
 
 	if err != nil {
-		fmt.Printf("Unmarshall error: %s\n", err)
+		log.Printf("Unmarshall error: %s\n", err)
 		return nil, err
 	}
 
@@ -40,9 +39,7 @@ func GetAllMarvelCharactersByte() ([]byte, error) {
 	var marvelHash string = os.Getenv("marvel_api_hash")
 
 	if marvelAPIKey == "" || marvelHash == "" {
-		// Try to get credentials from properties file
-		marvelAPIKey = utils.GetMarvelProperty("marvel.apikey")
-		marvelHash = utils.GetMarvelProperty("marvel.hash")
+		log.Fatalln("Marvel API Credentials not found")
 	}
 
 	// ******** REQUEST with extra params ****************
@@ -61,7 +58,7 @@ func GetAllMarvelCharactersByte() ([]byte, error) {
 	response, err := client.Do(request)
 
 	if err != nil {
-		fmt.Printf("HTTP ERROR %s\n", err)
+		log.Printf("HTTP ERROR %s\n", err)
 		return nil, err
 	}
 
