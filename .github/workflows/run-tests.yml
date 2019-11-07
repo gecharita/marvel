@@ -13,9 +13,10 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v1
+    - name: Print pwd && ls
+      run: pwd && ls -la
     - name: Run go test for all packages
       env:
-        super_secret: ${{ secrets.testCaseSecret }}
         marvel_api_key: ${{ secrets.marvelAPIKey }}
         marvel_api_hash: ${{ secrets.marvelHash }}
       run: go test ./... -v
